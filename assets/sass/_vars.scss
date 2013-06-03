@@ -1,0 +1,87 @@
+/* Variables */
+
+
+
+
+/* Glyphs */
+$font_glyphs: 'icomoon';
+
+$icon_home: "\e000";
+$icon_cart: "\e002";
+$icon_map: "\e003";
+$icon_user: "\e004";
+$icon_config: "\e005";
+$icon_menu: "\e006";
+$icon_checkmark: "\e007";
+$icon_close: "\e008";
+$icon_plus: "\e009";
+$icon_refresh: "\e00a";
+$icon_rss: "\e00b";
+$icon_facebook: "\e00c";
+$icon_twitter: "\e00d";
+$icon_trash: "\e00e";
+$icon_edit: "\e00f";
+$icon_doc: "\e010";
+
+@mixin icon ($content) {
+	font-family: $font_glyphs;
+	content: $content;
+}
+
+
+
+/* Responsive */
+$size_small_max   = 620px;
+$size_medium_max  = 780px;
+$size_large_max   = 1120px;
+
+
+@mixin size($size) {
+    @if $size == largeonly {
+        @media all and (min-width: $size_medium_max) and (max-width: $size_large_max) { @content; }
+    }
+	@else if $size == largeup {
+        @media all and (min-width: $size_medium_max) { @content; }
+    }
+    @else if $size == mediumup {
+        @media all and (min-width: $size_small_max) { @content; }
+    }
+    @else if $size == mediumonly {
+        @media all and (min-width: $size_small_max) and (max-width: $size_medium_max) { @content; }
+    }
+    @else if $size == smallonly {
+        @media all and (max-width: $size_small_max) { @content; }
+    }
+}
+
+
+
+
+/* Utility */
+
+@mixin clear {
+    display:block;
+    overflow:hidden;
+    width:100%;
+}
+
+
+@mixin contentclear {
+    &:after {
+       content: "";
+       display: table;
+       clear: both;                  
+    }
+}
+
+@mixin offsite {
+    position:absolute;
+    top:0;
+    left:-9999px;
+}
+
+@mixin onsite {
+    position: relative;
+    top: 0;
+    left: 0;
+}
