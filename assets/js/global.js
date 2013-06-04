@@ -1,16 +1,5 @@
 var App = {};
 
-function debug(s) {
-	if (typeof console === "undefined") {
-		console = { log: function(s){ alert(s); } }
-	} else {
-		console.log(s);
-	}
-}
-
-
-
-
 App.global = (function($, Modernizr, App) {
 	
 	// Module variables. Use for local tracking
@@ -19,32 +8,35 @@ App.global = (function($, Modernizr, App) {
 	
 	// Runs inline
 	var instant = function() {
-		debug("global.instant()");
+		_debug("global.instant()");
 	
 	}
 	
 	// Runs on doc ready
 	var onready = function() {
-		debug("global.onready()");
-		
-		// Set the controller and action names
-		var module = $("body").data("module");
+		_debug("global.onready()");
 
 		// Global mdule
 		this.init();
 
-		if (typeof App[module] !== 'undefined') {
-			if (typeof App[module].init !== 'undefined') {
-				App[module].init();
+		// Set the controller and action names
+		var modules = $("body").data("module").split(",");
+		modules.forEach(function(module) { 
+			if (typeof App[module] !== 'undefined') {
+				if (typeof App[module].init !== 'undefined') {
+					App[module].init();
+				}
 			}
-		}
+		});		
+
+		
 	};	
 	
 /* REGULAR METHODS */
 	
 	// Module init; This will run during onready if module is defined in the <body> data attribute
 	var init = function() {
-		debug("global.init()");
+		_debug("global.init()");
 	}
 	
 	
@@ -65,7 +57,7 @@ App.global = (function($, Modernizr, App) {
     return {
 		init: init,
         instant: instant,
-		onready: onready
+		onready: onready,
         data: data
     };
 

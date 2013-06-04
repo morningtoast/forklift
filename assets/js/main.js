@@ -7,7 +7,7 @@ App.Main = (function($, Modernizr, App) {
 	
 	// Module init; This will run during onready if module is defined in the <body> data attribute
 	var init = function() {
-		debug("main.init()");
+		_debug("main.init()");
 	}
 	
 	
