@@ -31,9 +31,9 @@ $icon_doc: "\e010";
 
 
 /* Responsive */
-$size_small_max   = 620px;
-$size_medium_max  = 780px;
-$size_large_max   = 1120px;
+$size_small_max: 620px;
+$size_medium_max: 780px;
+$size_large_max: 1120px;
 
 
 @mixin size($size) {
