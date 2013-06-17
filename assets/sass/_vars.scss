@@ -37,13 +37,16 @@ $size_large_max: 1120px;
 
 
 @mixin size($size) {
-    @if $size == largeonly {
-        @media all and (min-width: $size_medium_max) and (max-width: $size_large_max) { @content; }
+    @if $size == xlarge {
+        @media all and (min-width: $size_large_max) { @content; }
     }
-	@else if $size == largeup {
+    @else if $size == largeonly {
+        @media all and (min-width: $size_medium_max) and ($size_large_max) { @content; }
+    }
+    @else if $size == large {
         @media all and (min-width: $size_medium_max) { @content; }
     }
-    @else if $size == mediumup {
+    @else if $size == medium {
         @media all and (min-width: $size_small_max) { @content; }
     }
     @else if $size == mediumonly {
@@ -59,14 +62,14 @@ $size_large_max: 1120px;
 
 /* Utility */
 
-@mixin clear {
+@mixin clearhide {
     display:block;
     overflow:hidden;
     width:100%;
 }
 
 
-@mixin contentclear {
+@mixin clear {
     &:after {
        content: "";
        display: table;
