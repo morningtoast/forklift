@@ -54,6 +54,6 @@ var _cookie = {
     },
 
     erase: function (name) {
-        methods.cookies.create(name,"",-1);
+        _cookie.create(name,"",-1);
     }
 }        
