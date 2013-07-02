@@ -20,7 +20,7 @@ App.global = (function($, Modernizr, App) {
 		this.init();
 
 		// Set the controller and action names
-		var modules = $("body").data("module").split(",");
+		var modules = $("body").data("js").split(".");
 		modules.forEach(function(module) { 
 			if (typeof App[module] !== 'undefined') {
 				if (typeof App[module].init !== 'undefined') {

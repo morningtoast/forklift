@@ -6,6 +6,9 @@
 	<title>MY PROJECT</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+	<meta name="msapplication-TileImage" content="apple-touch-icon-144x144-precomposed.png"/>
+	<meta name="msapplication-TileColor" content="#003366"/>
+	<meta name="application-name" content="MY PROJECT" />
 
 	<!-- Dev pointers only; Change to compiled bundles for production -->
 	<link rel="stylesheet" href="assets/css/reset.css">
@@ -17,17 +20,19 @@
 	<script src="assets/js/global.js"></script>
 	<script src="assets/js/main.js"></script>
 </head>
-<body id="home" data-module="Main">
+<body id="home" data-js="Main">
+
 	<div id="layout">
-		<header>
+		<header id="layout-header">
 			HEADER
 		</header>
-		<div id="content">
+		<div id="layout-content">
 			CONTENT
 		</div>
-		<footer>
+		<footer id="layout-footer">
 			FOOTER
 		</footer>
 	</div>
+
 </body>
 </html>

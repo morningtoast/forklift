@@ -1,4 +1,8 @@
 /* Variables */
+$global_edge_padding: 15px;
+
+
+/* Site mixins */
 
 
 
@@ -28,11 +32,39 @@ $icon_doc: "\e010";
 	content: $content;
 }
 
+@mixin iconReplace($iconSize, $content) {
+    position: relative;
+    display: block;
+    margin: 0;
+    padding: 0 0 0 ($iconSize*1.3);
+    width: ($iconSize*1.3);
+    height: ($iconSize*1.3);
+    text-indent: 100%;
+    overflow: hidden;
+    text-decoration: none;
+    line-height: $iconSize;
+
+    &:before {
+        position: absolute;
+        top: 50%;
+        margin-top: -($iconSize/2);
+        left: 50%;
+        margin-left: -($iconSize/2);
+        display: block;
+        width: $iconSize;
+        height: $iconSize;
+        content: $content;
+        font-family: $font_glyphs;
+        font-size: $iconSize;
+        text-indent: 0;
+    }
+}
+
 
 
 /* Responsive */
-$size_small_max: 620px;
-$size_medium_max: 780px;
+$size_small_max: 480px;
+$size_medium_max: 760px;
 $size_large_max: 1120px;
 
 
@@ -75,6 +107,29 @@ $size_large_max: 1120px;
        display: table;
        clear: both;                  
     }
+}
+
+@mixin clean {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+@mixin cleanbutton {
+    -webkit-appearance: none;
+    -moz-appearance:    none;
+    appearance:         none;
+    border: none;
+    border-radius: 0;
+    border: solid 1px #ccc;
+    background: none;
+}
+
+@mixin edgebox($ptop, $pbottom) {
+    padding-left: $global_edge_padding;
+    padding-right:  $global_edge_padding;
+    padding-top: $ptop;
+    padding-bottom: $pbottom;
 }
 
 @mixin offsite {
