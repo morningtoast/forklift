@@ -13,7 +13,7 @@
     if(typeof exports !== 'undefined') {
         MYCLASS = exports;
     } else {
-        MYCLASS = root.MYCLASS = {};
+        MYCLASS = self.MYCLASS = {};
     }
 
     MYCLASS.version = "1.0";
