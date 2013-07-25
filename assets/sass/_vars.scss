@@ -1,5 +1,5 @@
 /* Variables */
-$global_edge_padding: 15px;
+$var_edgepadding: 15px;
 
 
 /* Site mixins */
@@ -10,22 +10,28 @@ $global_edge_padding: 15px;
 /* Glyphs */
 $font_glyphs: 'icomoon';
 
-$icon_home: "\e000";
-$icon_cart: "\e002";
-$icon_map: "\e003";
-$icon_user: "\e004";
-$icon_config: "\e005";
-$icon_menu: "\e006";
-$icon_checkmark: "\e007";
-$icon_close: "\e008";
-$icon_plus: "\e009";
-$icon_refresh: "\e00a";
-$icon_rss: "\e00b";
-$icon_facebook: "\e00c";
-$icon_twitter: "\e00d";
-$icon_trash: "\e00e";
-$icon_edit: "\e00f";
-$icon_doc: "\e010";
+$icon_home: "\e002";
+$icon_cart: "\e0c6";
+$icon_mail: "\e0ef";
+$icon_user: "\e185";
+$icon_config: "\e1e1";
+$icon_menu: "\e2ac";
+$icon_checkmark: "\e370";
+$icon_close: "\e36b";
+$icon_plus: "\e376";
+$icon_refresh: "\e3a8";
+$icon_rss: "\e4a1";
+$icon_facebook: "\e499";
+$icon_twitter: "\e49d";
+$icon_trash: "\e250";
+$icon_edit: "\e011";
+$icon_doc: "\e08d";
+$icon_star: "\e2fe";
+$icon_search: "\e1ba";
+$icon_arrowup: "\e3b4";
+$icon_arrowdown: "\e3b6";
+$icon_arrowleft: "\e3b7";
+$icon_arrowright: "\e3b5";
 
 @mixin icon ($content) {
 	font-family: $font_glyphs;
@@ -63,8 +69,8 @@ $icon_doc: "\e010";
 
 
 /* Responsive */
-$size_small_max: 480px;
-$size_medium_max: 760px;
+$size_small_max: 601px;
+$size_medium_max: 770px;
 $size_large_max: 1120px;
 
 
@@ -126,8 +132,8 @@ $size_large_max: 1120px;
 }
 
 @mixin edgebox($ptop, $pbottom) {
-    padding-left: $global_edge_padding;
-    padding-right:  $global_edge_padding;
+    padding-left: $var_edgepadding;
+    padding-right:  $var_edgepadding;
     padding-top: $ptop;
     padding-bottom: $pbottom;
 }
