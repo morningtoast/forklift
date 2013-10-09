@@ -69,9 +69,11 @@ $icon_arrowright: "\e3b5";
 
 
 /* Responsive */
-$size_small_max: 601px;
-$size_medium_max: 770px;
-$size_large_max: 1120px;
+$size_small_max: 601px; // Small <= 600
+$size_medium_max: 770px; // Medium <= 769
+$size_large_max: 1120px; // Large <= 1119
+
+// Xlarge >= 1120
 
 
 @mixin size($size) {
@@ -95,7 +97,25 @@ $size_large_max: 1120px;
     }
 }
 
+@include size(smallonly) {
+    .notsmall, .medium-only, .large-only { display: none; }
+}
 
+@include size(medium) {
+    .small-only { display: none; }
+}
+
+@include size(mediumonly) {
+    .large-only { display: none; }
+}
+
+@include size(largeonly) {
+    .medium-only { display: none; }
+}
+
+@include size(xlarge) {
+    .medium-only, .small-only { display: none; }
+}
 
 
 /* Utility */
@@ -131,11 +151,51 @@ $size_large_max: 1120px;
     background: none;
 }
 
+@mixin button($bg, $fg) {
+    @include cleanbutton;
+    border: solid 1px #ccc;
+    border-radius: 3px;
+    background-color:$bg;
+    border-color:darken($bg, 20%);
+    color:$fg;
+    text-decoration: none;
+    text-align: center;
+    padding: .4em 1.2em;
+    display: inline;
+}
+
+@mixin toolbar {
+    @include clear;
+
+    li {
+        float: left;
+
+        &.active {
+            font-weight: bold;
+        }
+    }
+}
+
+@mixin font($name) {
+    font-family: $name, arial, helvetica, sans-serif;
+    font-weight: normal;
+}
+
 @mixin edgebox($ptop, $pbottom) {
     padding-left: $var_edgepadding;
     padding-right:  $var_edgepadding;
     padding-top: $ptop;
     padding-bottom: $pbottom;
+}
+
+@mixin equalTop($px) {
+    padding-top: $px;
+    margin-top: $px;
+}
+
+@mixin equalBottom($px) {
+    padding-bottom: $px;
+    margin-bottom: $px;
 }
 
 @mixin offsite {
