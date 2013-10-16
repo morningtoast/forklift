@@ -4,7 +4,7 @@
 
 /* Base Mixins */
 @mixin button($bg, $fg) {
-    @include inputreset;
+    @extend %inputreset;
     border: solid 1px #ccc;
     border-radius: 3px;
     background-color:$bg;
@@ -23,8 +23,8 @@
 
 
 
-/* Base Shortcuts */
-@mixin clear {
+/* Shortcut Extensions */
+%clear {
     &:after {
        content: "";
        display: table;
@@ -32,13 +32,13 @@
     }
 }
 
-@mixin clean {
+%clean {
     padding: 0;
     margin: 0;
     list-style: none;
 }
 
-@mixin inputreset {
+%inputreset {
     -webkit-appearance: none;
     -moz-appearance:    none;
     appearance:         none;
@@ -48,7 +48,7 @@
     background: none;
 }
 
-@mixin toolbar {
+%toolbar {
     @include clear;
 
     li {
@@ -60,13 +60,13 @@
     }
 }
 
-@mixin offsite {
+%offsite {
     position:absolute;
     top:0;
     left:-9999px;
 }
 
-@mixin onsite {
+%onsite {
     position: relative;
     top: 0;
     left: 0;
