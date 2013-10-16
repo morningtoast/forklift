@@ -1,132 +1,29 @@
-/* Variables */
-$var_edgepadding: 15px;
-
-
-/* Site mixins */
+/* Base Variables */
 
 
 
-
-/* Glyphs */
-$font_glyphs: 'icomoon';
-
-$icon_home: "\e002";
-$icon_cart: "\e0c6";
-$icon_mail: "\e0ef";
-$icon_user: "\e185";
-$icon_config: "\e1e1";
-$icon_menu: "\e2ac";
-$icon_checkmark: "\e370";
-$icon_close: "\e36b";
-$icon_plus: "\e376";
-$icon_refresh: "\e3a8";
-$icon_rss: "\e4a1";
-$icon_facebook: "\e499";
-$icon_twitter: "\e49d";
-$icon_trash: "\e250";
-$icon_edit: "\e011";
-$icon_doc: "\e08d";
-$icon_star: "\e2fe";
-$icon_search: "\e1ba";
-$icon_arrowup: "\e3b4";
-$icon_arrowdown: "\e3b6";
-$icon_arrowleft: "\e3b7";
-$icon_arrowright: "\e3b5";
-
-@mixin icon ($content) {
-	font-family: $font_glyphs;
-	content: $content;
-}
-
-@mixin iconReplace($iconSize, $content) {
-    position: relative;
-    display: block;
-    margin: 0;
-    padding: 0 0 0 ($iconSize*1.3);
-    width: ($iconSize*1.3);
-    height: ($iconSize*1.3);
-    text-indent: 100%;
-    overflow: hidden;
+/* Base Mixins */
+@mixin button($bg, $fg) {
+    @include inputreset;
+    border: solid 1px #ccc;
+    border-radius: 3px;
+    background-color:$bg;
+    border-color:darken($bg, 20%);
+    color:$fg;
     text-decoration: none;
-    line-height: $iconSize;
+    text-align: center;
+    padding: .4em 1.2em;
+    display: inline;
+}
 
-    &:before {
-        position: absolute;
-        top: 50%;
-        margin-top: -($iconSize/2);
-        left: 50%;
-        margin-left: -($iconSize/2);
-        display: block;
-        width: $iconSize;
-        height: $iconSize;
-        content: $content;
-        font-family: $font_glyphs;
-        font-size: $iconSize;
-        text-indent: 0;
-    }
+@mixin font($name) {
+    font-family: $name, arial, helvetica, sans-serif;
+    font-weight: normal;
 }
 
 
 
-/* Responsive */
-$size_small_max: 601px; // Small <= 600
-$size_medium_max: 770px; // Medium <= 769
-$size_large_max: 1120px; // Large <= 1119
-
-// Xlarge >= 1120
-
-
-@mixin size($size) {
-    @if $size == xlarge {
-        @media all and (min-width: $size_large_max) { @content; }
-    }
-    @else if $size == largeonly {
-        @media all and (min-width: $size_medium_max) and ($size_large_max) { @content; }
-    }
-    @else if $size == large {
-        @media all and (min-width: $size_medium_max) { @content; }
-    }
-    @else if $size == medium {
-        @media all and (min-width: $size_small_max) { @content; }
-    }
-    @else if $size == mediumonly {
-        @media all and (min-width: $size_small_max) and (max-width: $size_medium_max) { @content; }
-    }
-    @else if $size == smallonly {
-        @media all and (max-width: $size_small_max) { @content; }
-    }
-}
-
-@include size(smallonly) {
-    .notsmall, .medium-only, .large-only { display: none; }
-}
-
-@include size(medium) {
-    .small-only { display: none; }
-}
-
-@include size(mediumonly) {
-    .large-only { display: none; }
-}
-
-@include size(largeonly) {
-    .medium-only { display: none; }
-}
-
-@include size(xlarge) {
-    .medium-only, .small-only { display: none; }
-}
-
-
-/* Utility */
-
-@mixin clearhide {
-    display:block;
-    overflow:hidden;
-    width:100%;
-}
-
-
+/* Base Shortcuts */
 @mixin clear {
     &:after {
        content: "";
@@ -141,7 +38,7 @@ $size_large_max: 1120px; // Large <= 1119
     list-style: none;
 }
 
-@mixin cleanbutton {
+@mixin inputreset {
     -webkit-appearance: none;
     -moz-appearance:    none;
     appearance:         none;
@@ -149,19 +46,6 @@ $size_large_max: 1120px; // Large <= 1119
     border-radius: 0;
     border: solid 1px #ccc;
     background: none;
-}
-
-@mixin button($bg, $fg) {
-    @include cleanbutton;
-    border: solid 1px #ccc;
-    border-radius: 3px;
-    background-color:$bg;
-    border-color:darken($bg, 20%);
-    color:$fg;
-    text-decoration: none;
-    text-align: center;
-    padding: .4em 1.2em;
-    display: inline;
 }
 
 @mixin toolbar {
@@ -176,28 +60,6 @@ $size_large_max: 1120px; // Large <= 1119
     }
 }
 
-@mixin font($name) {
-    font-family: $name, arial, helvetica, sans-serif;
-    font-weight: normal;
-}
-
-@mixin edgebox($ptop, $pbottom) {
-    padding-left: $var_edgepadding;
-    padding-right:  $var_edgepadding;
-    padding-top: $ptop;
-    padding-bottom: $pbottom;
-}
-
-@mixin equalTop($px) {
-    padding-top: $px;
-    margin-top: $px;
-}
-
-@mixin equalBottom($px) {
-    padding-bottom: $px;
-    margin-bottom: $px;
-}
-
 @mixin offsite {
     position:absolute;
     top:0;
@@ -209,3 +71,8 @@ $size_large_max: 1120px; // Large <= 1119
     top: 0;
     left: 0;
 }
+
+
+/* Module includes */
+@import "_fonts.scss";
+@import "_rwd.scss";

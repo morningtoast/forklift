@@ -1,0 +1,25 @@
+@import "_vars.scss";
+
+#layout-header, #layout-content, #layout-footer {
+	@include clear;
+	position: relative;
+}
+
+
+
+#layout-header {
+	background-color: #ccc;
+}
+
+
+
+#layout-content {
+
+}
+
+
+
+#layout-footer {
+	background-color: #000;
+	color: #fff;
+}

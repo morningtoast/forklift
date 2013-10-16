@@ -1,0 +1,53 @@
+/*****
+
+	Responsive handling
+
+*/
+
+$size_small_max: 601px; // Small <= 600
+$size_medium_max: 770px; // Medium <= 769
+$size_large_max: 1120px; // Large <= 1119
+
+// Xlarge >= 1120
+
+
+@mixin size($size) {
+    @if $size == xlarge {
+        @media all and (min-width: $size_large_max) { @content; }
+    }
+    @else if $size == largeonly {
+        @media all and (min-width: $size_medium_max) and ($size_large_max) { @content; }
+    }
+    @else if $size == large {
+        @media all and (min-width: $size_medium_max) { @content; }
+    }
+    @else if $size == medium {
+        @media all and (min-width: $size_small_max) { @content; }
+    }
+    @else if $size == mediumonly {
+        @media all and (min-width: $size_small_max) and (max-width: $size_medium_max) { @content; }
+    }
+    @else if $size == smallonly {
+        @media all and (max-width: $size_small_max) { @content; }
+    }
+}
+
+@include size(smallonly) {
+    .notsmall, .medium-only, .large-only { display: none; }
+}
+
+@include size(medium) {
+    .small-only { display: none; }
+}
+
+@include size(mediumonly) {
+    .large-only { display: none; }
+}
+
+@include size(largeonly) {
+    .medium-only { display: none; }
+}
+
+@include size(xlarge) {
+    .medium-only, .small-only { display: none; }
+}
