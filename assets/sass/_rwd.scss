@@ -1,16 +1,23 @@
-/*****
-
-	Responsive handling
-
+/*
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Responsive SASS
 */
 
-$size_small_max: 601px; // Small <= 600
-$size_medium_max: 770px; // Medium <= 769
-$size_large_max: 1120px; // Large <= 1119
 
-// Xlarge >= 1120
+/*
+    ~~~~~~~~~~~~~~~ 
+    Define break points
+    Use ems to so MQs fire when zooming, use PX->EM calculator
+*/
+$size_small_max: 37em; // ~600px
+$size_medium_max: 48em; // ~770px
+$size_large_max: 70em; // ~1120px
 
 
+/* 
+    ~~~~~~~~~~~~~~~
+    Media Query Mixin 
+*/
 @mixin size($size) {
     @if $size == xlarge {
         @media all and (min-width: $size_large_max) { @content; }
@@ -32,6 +39,11 @@ $size_large_max: 1120px; // Large <= 1119
     }
 }
 
+
+/*
+    ~~~~~~~~~~~~~~~
+    Helper classes 
+*/
 @include size(smallonly) {
     .notsmall, .medium-only, .large-only { display: none; }
 }
@@ -51,3 +63,4 @@ $size_large_max: 1120px; // Large <= 1119
 @include size(xlarge) {
     .medium-only, .small-only { display: none; }
 }
+

@@ -1,14 +1,17 @@
-/*****
-
-	Fonts + Glyphs
-	Font files should live in /assets/css/fonts/
+/*
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Fonts & Glyphs
+    Web font files should be placed in /assets/css/fonts/
 */
 
 
 
 
 
-/* Font definitions */
+/*
+    ~~~~~~~~~~~~~~~
+    Font definitions
+*/
 @font-face {
 	font-family: 'icomoon';
 	src:url('fonts/icomoon.eot');
@@ -23,7 +26,10 @@
 
 
 
-/* Glyphs */
+/* 
+    ~~~~~~~~~~~~~~~
+    Glyphs
+*/
 $font_glyphs: 'icomoon';
 
 $icon_home: "\e002";
@@ -49,6 +55,12 @@ $icon_arrowdown: "\e3b6";
 $icon_arrowleft: "\e3b7";
 $icon_arrowright: "\e3b5";
 
+
+
+/* 
+    ~~~~~~~~~~~~~~~
+    Mixins
+*/
 @mixin icon ($content) {
 	font-family: $font_glyphs;
 	content: $content;

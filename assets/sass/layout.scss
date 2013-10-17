@@ -1,5 +1,12 @@
 @import "_vars.scss";
 
+/*
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    Layout
+    Styles and positioning that relate to global site layout
+    Do not include layout rules for specific sections/pages
+*/
+
 #layout-header, #layout-content, #layout-footer {
 	@include clear;
 	position: relative;
